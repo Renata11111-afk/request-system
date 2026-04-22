@@ -1,16 +1,33 @@
-# React + Vite
+# Mini Request System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 Live Demo
 
-Currently, two official plugins are available:
+https://request-system-omega.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Description
 
-## React Compiler
+A simple request management system with two roles:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* User: can create and view requests
+* Manager: can manage and update request statuses
 
-## Expanding the ESLint configuration
+## ⚙️ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Create requests
+* Change request status (new → in progress → done)
+* Filter requests by status
+* Data persistence using LocalStorage
+* Responsive UI
+
+## 🛠 Tech Stack
+
+* React
+* JavaScript
+* CSS
+
+## 🚀 How to run locally
+
+```bash
+npm install
+npm run dev
+```

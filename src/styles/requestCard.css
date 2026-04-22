@@ -1,0 +1,85 @@
+.card-content {
+  display: flex; 
+  flex-direction: column;
+  padding: 20px;
+  max-width: 320px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: start;
+  transition: 0.2s ease;
+  background-color: var(--white);
+}
+
+.card-descr,
+.card-status,
+.card-id,
+.card-date {
+  margin: 10px 0;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.card-title {
+  color: var(--blue-dark);
+  margin: 10px 0;
+}
+
+.card-top {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.card-status {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  background: var(--grey);
+}
+
+.status-new {
+  color: var(--status-new);
+}
+
+.status-in-progress {
+  color: var(--status-in-progress);
+}
+
+.status-done {
+  color: var(--status-done);
+}
+
+.card-button {
+  margin-top: auto;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: var(--border-dark);
+  color: var(--white);
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.card-button i {
+  margin-right: 8px;
+}
+
+.card-button.delete {
+  background: var(--danger);
+}
+
+@media (min-width: 768px) {
+  .card-button:hover {
+    background: var(--blue-dark);
+  }
+
+  .card-content:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-dark);
+  }
+}
