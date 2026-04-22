@@ -25,9 +25,8 @@ function ManagerPage({ setRole, requests, updateRequestStatus, deleteRequest }) 
         {FILTERS.map((filter) => (
           <button
             key={filter.value}
-            className={`filter-button ${
-              activeFilter === filter.value ? "active" : ""
-            }`}
+            className={`filter-button ${activeFilter === filter.value ? "active" : ""
+              }`}
             onClick={() => setActiveFilter(filter.value)}
           >
             {filter.label}
@@ -36,15 +35,18 @@ function ManagerPage({ setRole, requests, updateRequestStatus, deleteRequest }) 
       </div>
 
       <div className="manager-list">
-        {filteredRequests.reverse().map((req) => (
-          <RequestCard
-            key={req.id}
-            {...req}
-            role={ROLES.MANAGER}
-            onStatusChange={updateRequestStatus}
-            onDelete={deleteRequest}
-          />
-        ))}
+        {filteredRequests.length === 0 ? (
+          <p className="empty-text">No requests found</p>
+        ) : (
+          filteredRequests.reverse().map((req) => (
+            <RequestCard
+              key={req.id}
+              {...req}
+              role={ROLES.MANAGER}
+              onStatusChange={updateRequestStatus}
+              onDelete={deleteRequest}
+            />
+          )))}
       </div>
 
     </div>

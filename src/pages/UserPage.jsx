@@ -22,16 +22,20 @@ function UserPage({
           />
         </div>
         <div className="content-right">
-          {[...requests].reverse().map((req) => (
-            <RequestCard
-              key={req.id}
-              title={req.title}
-              description={req.description}
-              status={req.status}
-              role={ROLES.USER}
-              createdAt={req.createdAt}
-            />
-          ))}
+          {requests.length === 0 ? (
+            <p className="empty-text">You have no requests yet</p>
+          ) : (
+            [...requests].reverse().map((req) => (
+              <RequestCard
+                key={req.id}
+                title={req.title}
+                description={req.description}
+                status={req.status}
+                role={ROLES.USER}
+                createdAt={req.createdAt}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>

@@ -46,3 +46,10 @@ body {
 .standart-button:hover {
   background-color: var(--blue-dark);
 }
+
+.empty-text {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+  margin-top: 20px;
+}
