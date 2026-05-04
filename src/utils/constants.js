@@ -9,6 +9,11 @@ export const STATUS = {
   DONE: "done",
 };
 
+export const TAB = {
+  REQUESTS: "requests",
+  LOGS: "logs",
+};
+
 export const FILTERS = [
   { label: "All", value: "all" },
   { label: "New", value: STATUS.NEW },

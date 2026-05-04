@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/requestForm.css";
 
-function RequestForm({ onSubmit }) {
+function RequestForm({ onSubmit, addLog }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -9,6 +9,8 @@ function RequestForm({ onSubmit }) {
     e.preventDefault();
 
     onSubmit(title, description);
+
+    addLog("Created request", "User");
 
     setTitle("");
     setDescription("");

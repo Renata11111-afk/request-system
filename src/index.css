@@ -13,6 +13,8 @@
   --status-done: #30a822;
   --danger: #e53935;
   --hover-light: #e0e0e0;
+  --modal-overlay: rgba(0, 0, 0, 0.45);
+  --box-shadow: rgba(0,0,0,0.05);
 }
 
 body {

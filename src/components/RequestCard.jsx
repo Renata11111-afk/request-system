@@ -9,7 +9,8 @@ function RequestCard({
   role,
   onStatusChange,
   onDelete,
-  createdAt
+  createdAt,
+  addLog
 }) {
   const getNextStatus = () => {
     if (status === STATUS.NEW) return STATUS.IN_PROGRESS;
@@ -41,7 +42,10 @@ function RequestCard({
           {nextStatus && (
             <button
               className="card-button"
-              onClick={() => onStatusChange(id, nextStatus)}
+              onClick={() => {
+                onStatusChange(id, nextStatus);
+                addLog(`Changed status to ${nextStatus}`, role);
+              }}
             >
               <i className="fa-solid fa-arrow-up"></i>
               Move to <b>"{nextStatus}"</b>
@@ -51,7 +55,10 @@ function RequestCard({
           {status === STATUS.DONE && (
             <button
               className="card-button delete"
-              onClick={() => onDelete(id)}
+              onClick={() => {
+                onDelete(id);
+                addLog("Deleted request", role);
+              }}
             >
               <i className="fa-solid fa-trash"></i>
               Delete request

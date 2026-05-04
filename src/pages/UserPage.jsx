@@ -4,7 +4,7 @@ import "../styles/userPage.css";
 import { ROLES } from "../utils/constants";
 
 function UserPage({
-  setRole, requests, addRequest
+  setRole, requests, addRequest, addLog
 }) {
 
   return (
@@ -19,6 +19,7 @@ function UserPage({
         <div className="content-left">
           <RequestForm
             onSubmit={addRequest}
+            addLog={addLog}
           />
         </div>
         <div className="content-right">
@@ -33,6 +34,7 @@ function UserPage({
                 status={req.status}
                 role={ROLES.USER}
                 createdAt={req.createdAt}
+                addLog={addLog}
               />
             ))
           )}

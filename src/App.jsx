@@ -6,20 +6,22 @@ import { ROLES, STATUS } from "./utils/constants";
 
 function App() {
   const [role, setRole] = useState(null);
-  const [requests, setRequests] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+
+  const [requests, setRequests] = useState(() => {
+    return JSON.parse(localStorage.getItem("requests")) || [];
+  });
+
+  const [logs, setLogs] = useState(() => {
+    return JSON.parse(localStorage.getItem("logs")) || [];
+  });
 
   useEffect(() => {
-    const savedRequests = JSON.parse(localStorage.getItem("requests")) || [];
-    setRequests(savedRequests);
-    setIsLoaded(true);
-  }, []);
-  
+    localStorage.setItem("logs", JSON.stringify(logs));
+  }, [logs]);
+
   useEffect(() => {
-    if (isLoaded) {
-      localStorage.setItem("requests", JSON.stringify(requests));
-    }
-  }, [requests, isLoaded]);
+    localStorage.setItem("requests", JSON.stringify(requests));
+  }, [requests]);
 
   const addRequest = (title, description) => {
     const newRequest = {
@@ -45,12 +47,25 @@ function App() {
     setRequests((prev) => prev.filter((req) => req.id !== id));
   };
 
+
+  const addLog = (action, role) => {
+    const newLog = {
+      id: Date.now(),
+      action,
+      role,
+      time: new Date().toLocaleString()
+    };
+
+    setLogs(prev => [newLog, ...prev]);
+  }
+
   if (role === ROLES.USER) {
     return (
       <UserPage
         setRole={setRole}
         requests={requests}
         addRequest={addRequest}
+        addLog={addLog}
       />
     );
   }
@@ -62,6 +77,8 @@ function App() {
         requests={requests}
         updateRequestStatus={updateRequestStatus}
         deleteRequest={deleteRequest}
+        logs={logs}
+        addLog={addLog}
       />
     );
   }
